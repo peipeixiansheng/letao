@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入mui的css文件 -->
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <!-- 引入字体图标的css文件 -->
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <!-- 引入主页的less文件 -->
+    <link rel="stylesheet/less" href="less/classify.less">
+    <!-- 引入less的编译js -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <a href="javascript:history.back()" class="icon_back fa fa-arrow-left"></a>
+        <form action="#"><input type="search" placeholder="请输入商品名称"></form>
+        <a href="search.html" class="icon_search fa fa-search"></a>
+    </header>
+    <!-- 分类的主体部分 -->
+    <main id="main">
+        <div class="content">
+            <div class="left">
+                <div class="mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <!--这里放置真实显示的DOM内容-->
+                        <ul>
+                            <!-- <li class="active"><a href="#">运动馆</a></li> -->
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right">
+                <div class="mui-scroll-wrapper">
+                    <div class="mui-scroll">
+                        <!--这里放置真实显示的DOM内容-->
+                        <div class="mui-row">
+                            <!-- <div class="mui-col-xs-4"><a href="#"><img src="images/brand1.png" alt=""><span>耐克</span></a></div>-->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <div class="mui-col-xs-3"><a href="index.html"><i class="fa fa-home"></i>
+                    <p>首页</p>
+                </a></div>
+            <div class="mui-col-xs-3"><a href="classify.html" class="action"><i class="fa fa-bars"></i>
+                    <p>分类</p>
+                </a></div>
+            <div class="mui-col-xs-3"><a href="#"><i class="fa fa-shopping-cart"></i>
+                    <p>购物车</p>
+                </a></div>
+            <div class="mui-col-xs-3"><a href="#"><i class="fa fa-user"></i>
+                    <p>会员中心</p>
+                </a></div>
+        </div>
+    </footer>
+    <!-- 引入mui的js -->
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 引入模板js -->
+    <script src="lib/artTemplate//template-web.js"></script>
+    <!-- 左侧分类模板 -->
+    <script id="classifyTmp" type="text/html">
+        {{each rows value i}}
+        <li class="{{i==0? "active":""}}"><a href="#" data-id="{{value.id}}">{{value.categoryName}}</a></li>
+        {{/each}}
+    </script>
+    <!-- 请求右侧品牌数据的模板 -->
+    <script id="rightTmp" type="text/html">
+        {{if rows.length>0}}
+        {{each rows value }}
+        <div class="mui-col-xs-4"><a href="#"><img src="{{value.brandLogo}}" alt=""><span>{{value.brandName}}</span></a></div>
+        {{/each}}
+        {{else}}
+        <p>暂时没有数据</p>
+        {{/if}}
+    </script>
+    <!-- 引入zeptojs -->
+    <script src="lib/zepto/zepto.min.js"></script>
+    <script src="js/classify.js"></script>
+</body>
+
+</html>
