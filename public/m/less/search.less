@@ -1,62 +1,46 @@
 @import "base.less";
-#main{
+#main {
     background-color: #fff;
-    .search{
-        padding: 10px 10px 0px;
-        form{
-            display: flex;
-            .input-search{
-                height: 30px;
-                font-size: 14px;
-                border: 1px solid @main-color;
-                border-radius: 6px 0px 0px 6px;
-                margin-bottom: 0px;
-            }
-            .btn-search{
-                height: 30px;
-                font-size:14px;
-                background-color: @main-color;
-                border: 1px solid @main-color;
-                border-radius:0px 6px 6px 0px;
-            }
-        }
-    }
-    .search-chistory{
+    
+    .search-chistory {
         padding: 0 10px;
-        .title{
-           font-size: 12px;
-           line-height: 40px;
-           height: 40px;
-           color: #666;
-           >i{
-               line-height: 40px;
-           }
+        height: 100%;
+        .title {
+            font-size: 12px;
+            line-height: 40px;
+            height: 40px;
+            color: #666;
+            >i {
+                line-height: 40px;
+            }
         }
-        .content{
-            >ul{
-                border:1px solid #ccc;
-                >li{
+        .content {
+            ul {
+                border: 1px solid #ccc;
+                max-height: 150px;
+                overflow: auto;
+                >li {
                     padding-left: 10px;
                     line-height: 30px;
                     font-size: 14px;
                     border-bottom: 1px solid #ccc;
                     display: flex;
-                    >a{
+                    >a {
                         height: 100%;
                         display: block;
-                        flex:1;
+                        flex: 1;
                     }
-                    >.mui-pull-right{
+                    >.mui-pull-right {
                         line-height: 30px;
                         width: 30px;
                         color: #666;
                         text-align: center;
                     }
-                    &:last-of-type{
+                    &:last-of-type {
                         border-bottom: none;
                     }
                 }
-                >p{
+                >p {
                     text-align: center;
                     line-height: 30px;
                     margin-bottom: 0px;

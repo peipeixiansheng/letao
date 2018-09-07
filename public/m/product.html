@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <!-- 引入mui的css文件 -->
+    <link rel="stylesheet" href="./lib/mui/css/mui.css">
+    <!-- 引入字体图标的css文件 -->
+    <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
+    <!-- 引入主页的less文件 -->
+    <link rel="stylesheet/less" href="less/product.less">
+    <!-- 引入less的编译js -->
+    <script src="lib/less/less.js"></script>
+</head>
+
+<body>
+    <!-- 头部区域 -->
+    <header id="header">
+        <a href="javascript:history.back()" class="icon_back fa fa-arrow-left"></a>
+        <h4>搜索中心</h4>
+    </header>
+    <!--主体部分 -->
+    <main id="main">
+        <div id="refreshContainer" class="mui-content mui-scroll-wrapper">
+            <div class="mui-scroll">
+                <!-- 搜索框 -->
+                <div class="product-search">
+                    <form action="#">
+                        <input type="text" class="input-search" placeholder="请输入商品名称">
+                        <button class="mui-btn mui-btn-primary btn-search">搜索</button>
+                    </form>
+                </div>
+                <div class="product-title">
+                    <div class="mui-row">
+                        <div class="mui-col-xs-3"><a href="javascript:">上架时间 &nbsp;<i class="fa fa-angle-down"></i></a></div>
+                        <div class="mui-col-xs-3"><a href="javascript:" data-sort-type="price" data-sort="1">价格 &nbsp;<i class="fa fa-angle-down"></i></a></div>
+                        <div class="mui-col-xs-3"><a href="javascript:" data-sort-type="num" data-sort="1">销量 &nbsp;<i class="fa fa-angle-down"></i></a></div>
+                        <div class="mui-col-xs-3"><a href="javascript:">折扣 &nbsp;<i class="fa fa-angle-down"></i></a></div>
+                    </div>
+                </div>
+                <div class="product-content">
+                    <div class="mui-row">
+                        <!-- <div class="mui-col-xs-6">
+                            <div class="product">
+                                <a href="#" class="product-img">
+                                    <img src="./images/product.jpg" alt="">
+                                    <p>adidas阿迪达斯 男式 场下休闲篮球鞋S83700 </p>
+                                    <p class="price">
+                                        <span>¥560.00</span>
+                                        <del>¥888.00</del>
+                                    </p>
+                                </a>
+                                <button class="mui-btn-primary">立即购买</button>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    <!-- 底部区域 -->
+    <footer id="footer">
+        <div class="mui-row">
+            <div class="mui-col-xs-3"><a href="index.html"><i class="fa fa-home"></i>
+                    <p>首页</p>
+                </a></div>
+            <div class="mui-col-xs-3"><a href="classify.html" class=""><i class="fa fa-bars"></i>
+                    <p>分类</p>
+                </a></div>
+            <div class="mui-col-xs-3"><a href="#"><i class="fa fa-shopping-cart"></i>
+                    <p>购物车</p>
+                </a></div>
+            <div class="mui-col-xs-3"><a href="#"><i class="fa fa-user"></i>
+                    <p>会员中心</p>
+                </a></div>
+        </div>
+    </footer>
+    <!-- 产品模板 -->
+    <script id="productListTmp" type="text/html">
+        {{if data.length>0}}
+        {{each data value i}}
+        <div class="mui-col-xs-6">
+                <div class="product">
+                    <a href="#" class="product-img">
+                        <img src="{{value.pic[0].picAddr}}" alt="">
+                        <p>{{value.proName}} </p>
+                        <p class="price">
+                            <span>¥{{value.price}}</span>
+                            <del>¥{{value.oldPrice}}</del>
+                        </p>
+                    </a>
+                    <button class="mui-btn-primary">立即购买</button>
+                </div>
+            </div>
+        {{/each}}
+        {{else}}
+        <p>对不起，没有此商品，正在努力上架中</p>
+        {{/if}}
+    </script>
+    <!-- 引入mui的js -->
+    <script src="lib/mui/js/mui.js"></script>
+    <!-- 引入模板js -->
+    <script src="lib/artTemplate//template-web.js"></script>
+    <!-- 引入zeptojs -->
+    <script src="lib/zepto/zepto.min.js"></script>
+    <script src="js/product.js"></script>
+</body>
+
+</html>

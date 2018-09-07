@@ -130,8 +130,54 @@ body{
     // padding: 45px 0;
     position: relative;
     height: 100%;
-
+    .product-search {
+        padding: 10px 10px 0px;
+        form {
+            display: flex;
+            .input-search {
+                height: 30px;
+                font-size: 14px;
+                border: 1px solid @main-color;
+                border-radius: 6px 0px 0px 6px;
+                margin-bottom: 0px;
+            }
+            .btn-search {
+                height: 30px;
+                font-size: 14px;
+                background-color: @main-color;
+                border: 1px solid @main-color;
+                border-radius: 0px 6px 6px 0px;
+            }
+        }
+    }
 }
+// 商品的公共样式
+.product-content{
+    padding-top:10px;
+    .mui-row > [class*='mui-col-']{
+        padding: 5px;
+        .product{
+            padding: 5px 5px 10px;
+            box-shadow:0px 0px 1px 1px #ccc;
+           
+            // width: 100%;
+            a{
+                display: block;
+                width: 100%;
+                img{
+                    width: 100%;
+                }
+                .price{
+                    color:#ccc;
+                    span{
+                        font-size:12px;
+                        color: #f00;
+                    }
+                }
+            }
+        }
+       }
+       } 
 // 底部公共样式样式
 #footer{
     text-align: center;
