@@ -1,0 +1,34 @@
+@import "base.less";
+#main {
+    font-size: 14px;
+    background-color: #fff;
+    form {
+        >div {
+            .label{
+                width: 20%;
+            }
+            input {
+                font-size: 14px;
+                &.password1{
+                    font-size: 12px;
+                    width: 80%;
+                    max-width: 80%;
+                }
+            }
+            .btn-vcode {
+                position: absolute;
+                right: 0;
+                top: 0;
+                width: 30%;
+            }
+            &:last-of-type{
+                padding-top: 20px;
+                height: 65px;
+            }
+            .btn-register{
+                width: 100%;
+                height: 100%;
+            }
+        }
+    }
+}

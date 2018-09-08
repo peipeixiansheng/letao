@@ -30,7 +30,7 @@
                 <div class="product-search">
                     <form action="#">
                         <input type="text" class="input-search" placeholder="请输入商品名称">
-                        <button class="mui-btn mui-btn-primary btn-search">搜索</button>
+                        <button type="button" class="mui-btn mui-btn-primary btn-search">搜索</button>
                     </form>
                 </div>
                 <div class="product-title">
@@ -83,7 +83,7 @@
         {{if data.length>0}}
         {{each data value i}}
         <div class="mui-col-xs-6">
-                <div class="product">
+                <div class="product" data-id="{{value.id}}">
                     <a href="#" class="product-img">
                         <img src="{{value.pic[0].picAddr}}" alt="">
                         <p>{{value.proName}} </p>
@@ -92,7 +92,7 @@
                             <del>¥{{value.oldPrice}}</del>
                         </p>
                     </a>
-                    <button class="mui-btn-primary">立即购买</button>
+                    <button type="button" class="mui-btn-primary btn-buy">立即购买</button>
                 </div>
             </div>
         {{/each}}

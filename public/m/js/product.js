@@ -7,6 +7,7 @@ $(function () {
     letao.sortProduct();
     //调用根据url的参数来刷新页面
     letao.getProductList();
+    letao.productBuy();
 });
 var Letao = function () {
 
@@ -88,15 +89,16 @@ Letao.prototype = {
     clickSearch: function () {
         var that = this;
         //添加点击事件
-        $('#main .btn-search').on('click', function (e) {
-            e = e || window.event;
-            e.preventDefault();
+        $('#main .btn-search').on('tap', function () {
+            // e = e || window.event;
+            // e.preventDefault();
             that.search = $('.input-search').val();
             // 判断用户输入的是不是为空
             if (!that.search.trim()) {
                 mui.toast('请输入商品名称');
                 return;
-            }
+            };
+            // console.log(that.search);
             $('.input-search').val('');
             // console.log(that.search);
             // 搜索前要重置page=1
@@ -116,6 +118,8 @@ Letao.prototype = {
                     // 搜索完成后也要重置上拉加载更多
                     //6. 还要重置上拉加载更多 重置的时候会默认自动触发一次上拉加载
                     mui('#refreshContainer').pullRefresh().refresh(true);
+                    // 更改地址栏
+                    window.location.href='product.html?search=' + that.search;
                 }
             })
         })
@@ -136,11 +140,17 @@ Letao.prototype = {
             sort = sort == 1 ? 2 : 1;
             // 更新sort
             $(this).data('sort', sort);
+            $(this).css('color', 'red');
+            // console.log(this);
+            // console.log($(this).parent());
+            //console.log($(this).parent().siblings().children());  
+            $(this).parent().siblings().children().css('color', '#666');
             // console.log(sort);
             // 判断点的是价格还是数量来发请求
             if (sortType) {
                 //    console.log(111);              
                 if (sortType == 'price') {
+                    that.num=null;
                     $.ajax({
                         url: "/product/queryProduct",
                         data: {
@@ -160,6 +170,7 @@ Letao.prototype = {
                         }
                     })
                 } else {
+                    that.price=null;
                     $.ajax({
                         url: "/product/queryProduct",
                         data: {
@@ -202,7 +213,17 @@ Letao.prototype = {
                 // 搜索完成后也要重置上拉加载更多
                 //6. 还要重置上拉加载更多 重置的时候会默认自动触发一次上拉加载
                 mui('#refreshContainer').pullRefresh().refresh(true);
-        }
+            }
+        })
+    },
+    // 跳转到商品详情
+    productBuy:function(){
+        $('#main .product-content .mui-row').on('tap','.product',function(){
+            // console.log(this);
+            // 拿到id
+            var id=$(this).data('id');
+            // console.log(id)
+            window.location.href='detail.html?id='+id;
         })
     },
     //专门获取地址栏参数的方法
@@ -211,5 +232,6 @@ Letao.prototype = {
         var r = window.location.search.substr(1).match(reg);
         if (r != null) return decodeURI(r[2]);
         return null;
-    }
+    },
+    
 }

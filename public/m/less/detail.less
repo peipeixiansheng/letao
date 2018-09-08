@@ -1,0 +1,64 @@
+@import "base.less";
+// 主体的样式
+#main {
+    background-color: #fff;
+    [class^='product-'] {
+        border-bottom: 1px solid #ccc;
+        padding: 10px;
+        font-size: 14px;
+    }
+    .product-title {
+        font-size: 18px;
+        padding: 10px;
+        text-align: center;
+        font-weight: 600;
+    }
+    .product-price {
+        span {
+            font-size: 20px;
+            font-weight: 700;
+            color: red;
+        }
+        del {
+            color: #ccc;
+        }
+    }
+    .product-size {
+        span {
+            border: 1px solid #333;
+            width: 30px;
+            height: 30px;
+            display: inline-block;
+            margin-bottom: 10px;
+            text-align: center;
+            line-height: 30px;
+            &.active{
+                background-color: orange;
+            }
+        }
+    }
+}
+
+// 底部的样式
+#footer {
+    background-color: #e6e6e6;
+    [class^='mui-col'] {
+        padding: 5px 10px;
+        line-height: 35px;
+        button {
+            width: 100%;
+            color: #fff;
+            background-color: #991020;
+            &.buy-now {
+                background-color: #fa672d;
+            }
+        }
+        a {
+            width: 100%;
+            height: 100%;
+            display: inline-block;
+            color: #333;
+            font-size: 25px;
+        }
+    }
+}

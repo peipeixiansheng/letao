@@ -28,11 +28,11 @@ Letao.prototype = {
     addHistory: function () {
         var that = this;
         // 给搜索按钮添加点击事件
-        $('#main .product-search .btn-search').on('click', function (e) {
+        $('#main .product-search .btn-search').on('tap', function () {
             // console.log(111);
             // 获取输入框得文本
-            e = e || window.event;
-            e.preventDefault();
+            // e = e || window.event;
+            // e.preventDefault();
             var text = $('#main .input-search').val();
             //   console.log(text);
             // 每次查完后就清空输入框

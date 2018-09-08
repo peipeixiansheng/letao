@@ -11,7 +11,7 @@
     <!-- 引入字体图标的css文件 -->
     <link rel="stylesheet" href="lib/fontAwesome/css/font-awesome.css">
     <!-- 引入主页的less文件 -->
-    <link rel="stylesheet/less" href="less/search.less">
+    <link rel="stylesheet/less" href="less/login.less">
     <!-- 引入less的编译js -->
     <script src="lib/less/less.js"></script>
 </head>
@@ -20,32 +20,24 @@
     <!-- 头部区域 -->
     <header id="header">
         <a href="javascript:history.back()" class="icon_back fa fa-arrow-left"></a>
-        <h4>搜索商品</h4>
+        <h4>登录</h4>
     </header>
     <!--主体部分 -->
     <main id="main">
-        <!-- 搜索框 -->
-        <div class="product-search">
-            <form action="#">
-                <input type="text" class="input-search" placeholder="请输入商品名称">
-                <button type="button" class="mui-btn mui-btn-primary btn-search">搜索</button>
-            </form>
-        </div>
-        <!-- 搜索历史 -->
-        <div class="search-chistory">
-            <div class="title">
-                <span class="mui-pull-left">搜索历史</span>
-                <i class="fa fa-trash mui-pull-right clearHistory">清空记录</i>
+        <form class="mui-input-group">
+            <div class="mui-input-row">
+                <label>用户名</label>
+                <input type="text" class="mui-input-clear username" placeholder="请输入用户名">
             </div>
-            <div class="content">
-                <ul>
-                    <!-- <li>
-                                    <a href="#">鞋</a>
-                                    <i class="fa fa-close mui-pull-right"></i>
-                                </li> -->
-                </ul>
+            <div class="mui-input-row">
+                <label>密码</label>
+                <input type="password" class="mui-input-password password" placeholder="请输入密码">
             </div>
-        </div>
+            <div class="mui-button-row">
+                <button type="button" class="mui-btn mui-btn-primary btn-login">登录</button>
+                <a href="register.html" class="btn-register">免费注册</a>
+            </div>
+        </form>
     </main>
     <!-- 底部区域 -->
     <footer id="footer">
@@ -64,26 +56,13 @@
                 </a></div>
         </div>
     </footer>
-    <!-- 历史记录得模板 -->
-    <script id="historyTmp" type="text/html">
-        {{if list.length>0}}
-        {{each list value}}
-        <li>
-            <a href="product.html?search={{value.search}}">{{value.search}}</a>
-            <i class="fa fa-close mui-pull-right remove-history" data-id={{value.id}}></i>
-        </li>
-        {{/each}}
-        {{else}}
-        <p>没有历史搜索记录</p>
-        {{/if}}
-    </script>
     <!-- 引入mui的js -->
     <script src="lib/mui/js/mui.js"></script>
     <!-- 引入模板js -->
     <script src="lib/artTemplate//template-web.js"></script>
     <!-- 引入zeptojs -->
     <script src="lib/zepto/zepto.min.js"></script>
-    <script src="js/search.js"></script>
+    <script src="js/login.js"></script>
 </body>
 
 </html>
